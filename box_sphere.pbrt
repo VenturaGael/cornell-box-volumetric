@@ -1,0 +1,51 @@
+# sphere
+AttributeBegin
+MediumInterface "" "fog"
+
+Material "dielectric"
+    "bool remaproughness" [ false ]
+    #"float vroughness" [ 0.01 ]
+    #"float uroughness" [ 0.01 ]
+
+    Translate 186 90 168
+    Shape "sphere"
+        "float radius" [ 90 ]
+AttributeEnd
+
+# tall block
+AttributeBegin
+    Material "conductor"
+    "float roughness" [ 0.0025 ]
+    "spectrum k" [ "metal-Ag-k" ]
+    "spectrum eta" [ "metal-Ag-eta" ]
+
+   Shape "trianglemesh"
+   "integer indices" [
+      3 2 0 2 1 0
+      7 6 4 6 5 4
+      11 10 8 10 9 8
+      15 14 12 14 13 12
+      19 18 16 18 17 16
+   ]
+   "point3 P" [
+    423.0 330.0 247.0
+    265.0 330.0 296.0
+    314.0 330.0 456.0
+    472.0 330.0 406.0
+    423.0   0.0 247.0
+    423.0 330.0 247.0
+    472.0 330.0 406.0
+    472.0   0.0 406.0
+    472.0   0.0 406.0
+    472.0 330.0 406.0
+    314.0 330.0 456.0
+    314.0   0.0 456.0
+    314.0   0.0 456.0
+    314.0 330.0 456.0
+    265.0 330.0 296.0
+    265.0   0.0 296.0
+    265.0   0.0 296.0
+    265.0 330.0 296.0
+    423.0 330.0 247.0
+    423.0   0.0 247.0]
+AttributeEnd

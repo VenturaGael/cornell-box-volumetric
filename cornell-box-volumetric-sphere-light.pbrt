@@ -4,8 +4,8 @@ MakeNamedMedium "fog"
     "string type" [ "homogeneous" ]
 
     # the working one
-    "float scale" [ 0.0015 ]
-    "rgb sigma_a" [ 0.005 0.005 0.005 ]
+    "float scale" [ 0.001 ]
+    "rgb sigma_a" [ 0.1 0.1 0.1 ]
     "rgb sigma_s" [ 1 1 1 ]
 
 
@@ -13,7 +13,7 @@ MediumInterface "" "fog"
 Camera "perspective" "float fov" [37.5]
 
 Film "rgb"
-    "string filename" ["cornell-box-volumetric.png"]
+    "string filename" ["cornell-box-volumetric-sphere-light.png"]
     "integer xresolution" [ 1080 ]
     "integer yresolution" [ 1080 ]
 
@@ -34,18 +34,14 @@ Material "diffuse"
 
 # light source
 AttributeBegin
-   AreaLightSource
+   AreaLightSource 
    "diffuse"
-   "rgb L" [5.4 3.8 1.2]
-   "float scale" [20]
+   "rgb L" [ 541126.75 381971.8 127323.94 ]
+   "float scale" [0.0001]
 
-   Shape "trianglemesh"
-   "integer indices" [ 0 1 2  2 3 0 ]
-   "point3 P" [
-      343.0 554 227.0
-      343.0 554 332.0
-      213.0 554 332.0
-      213.0 554 227.0 ]
+    Translate 275 500 275
+    Shape "sphere"
+        "float radius" [ 20 ]
 AttributeEnd
 
 #red wall
