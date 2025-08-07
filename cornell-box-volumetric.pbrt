@@ -1,0 +1,112 @@
+LookAt 278 273 -800  278 273 0   0 1 0
+
+MakeNamedMedium "medium"
+    #"rgb sigma_a" [ 0.00005 0.00005 0.00005 ]
+    #"rgb sigma_s" [ 0.001 0.001 0.001 ]
+
+    "string type" [ "homogeneous" ]
+
+    # the working one
+    "float scale" [ 0.001 ]
+    "rgb sigma_a" [ 0.005 0.005 0.005 ]
+    "rgb sigma_s" [ 1 1 1 ]
+
+
+MediumInterface "" "medium"
+Camera "perspective" "float fov" [37.5]
+
+Film "rgb"
+    "string filename" ["cornell-box-specular.png"]
+    "integer xresolution" [ 1080 ]
+    "integer yresolution" [ 1080 ]
+
+Integrator "volpath"
+
+Sampler "independent"
+    "integer pixelsamples" [ 16 ]
+
+
+WorldBegin
+
+MediumInterface "" ""
+# reset medium interface
+
+# color grey
+Material "diffuse"
+    "rgb reflectance" [ 0.73 0.73 0.73 ]
+
+# light source
+AttributeBegin
+   AreaLightSource "diffuse" "rgb L" [1 1 1] "float scale" [20]
+
+   Shape "trianglemesh"
+   "integer indices" [ 0 1 2  2 3 0 ]
+   "point3 P" [
+      343.0 554 227.0
+      343.0 554 332.0
+      213.0 554 332.0
+      213.0 554 227.0 ]
+AttributeEnd
+
+#red wall
+AttributeBegin
+Material "diffuse"
+    "rgb reflectance" [ 0.65 0.05 0.05 ]
+
+Shape "trianglemesh"
+   "integer indices" [ 0 1 2  2 3 0 ]
+   "point3 P" [
+      555 0.0 0.0
+      555 0.0 555
+      555 555 555
+      555 555 0.0 ]
+AttributeEnd
+
+# green wall
+AttributeBegin
+Material "diffuse"
+    "rgb reflectance" [ 0.12 0.45 0.15 ]
+
+Shape "trianglemesh"
+   "integer indices" [ 0 1 2  2 3 0 ]
+   "point3 P" [
+      0.0 0.0 555
+      0.0 0.0 0.0
+      0.0 555 0.0
+      0.0 555 555 ]
+AttributeEnd
+
+# everything else is grey
+
+# floor
+AttributeBegin
+   Shape "trianglemesh"
+   "integer indices" [ 0 1 2  2 3 0 ]
+   "point3 P" [
+      555 0.0 0.0
+      0.0 0.0 0.0
+      0.0 0.0 555
+      555 0.0 555 ]
+AttributeEnd
+
+# ceil
+AttributeBegin
+   Shape "trianglemesh"
+   "integer indices" [ 0 1 2  2 3 0 ]
+   "point3 P" [
+    555 555 0.0
+    555 555 555
+    0.0 555 555
+    0.0 555   0.0 ]
+AttributeEnd
+
+# back wall
+AttributeBegin
+   Shape "trianglemesh"
+   "integer indices" [ 0 1 2  2 3 0 ]
+   "point3 P" [
+    555 0.0 555
+    0.0 0.0 555
+    0.0 555 555
+    555 555 555]
+AttributeEnd
