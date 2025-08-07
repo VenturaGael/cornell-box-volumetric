@@ -1,13 +1,11 @@
 LookAt 278 273 -800  278 273 0   0 1 0
 
 MakeNamedMedium "medium"
-    #"rgb sigma_a" [ 0.00005 0.00005 0.00005 ]
-    #"rgb sigma_s" [ 0.001 0.001 0.001 ]
-
     "string type" [ "homogeneous" ]
 
     # the working one
-    "float scale" [ 0.001 ]
+    #"float scale" [ 0.001 ]
+    "float scale" [ 0.0015 ]
     "rgb sigma_a" [ 0.005 0.005 0.005 ]
     "rgb sigma_s" [ 1 1 1 ]
 
